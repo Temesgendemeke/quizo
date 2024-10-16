@@ -1,0 +1,34 @@
+{% extends "quiz/index.html" %}
+
+{% block content %}
+
+{% include "quiz/components/header.html"%}
+
+<div class="dashboard">
+  
+    <div class="personal-info">
+       <div>
+         <p class="user">@{{user.username}}</p>
+         <h3 class="name">name: @{{user.first_name}}</h3>
+         <p>email: {{user.email}}</p>
+       </div>
+    </div>
+    <div class="score-section">
+      <table class="dashboard-table">
+
+              <td>TITLE</td>
+              <td>SCORE</td>
+          </tr>
+          {% for quiz in quizs%}
+          <tr>
+            <td>{{quiz.subject}}</td>
+            <td><a href="">{{quiz.quiz.title}}</a></td>
+            <td>{{quiz.score}}</td>
+          </tr>
+          {% endfor %}
+      </table>
+    </div>
+</div>
+
+{% include "quiz/components/footer.html"%}
+{% endblock content%}

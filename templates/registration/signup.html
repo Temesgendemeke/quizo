@@ -1,0 +1,18 @@
+{% extends "quiz/index.html" %} 
+{% block content %}
+{% include "quiz/components/header.html"%}
+<div class="form-wrapper">
+	<div class="signup">
+   		<form action="" method="post" class="signup-wrapper" id="signup-form">
+			{% csrf_token %} 
+       <h1 class="signup-title">Sign up</h1>
+           {{ form.as_p}}
+			<input type="submit" value="Signup" />
+        <p>
+            Already have an account? <a href="{% url 'quiz:login' %}">Login</a>
+		</p> 
+		</form>
+       	</div>
+</div>
+
+{% include "quiz/components/footer.html"%} {% endblock content %}

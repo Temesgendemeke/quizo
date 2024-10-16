@@ -1,0 +1,26 @@
+{% extends "quiz/index.html" %}
+
+
+{% block content %}
+
+{% include "quiz/components/header.html"%}
+<div class="score-container">
+    
+    <div class="circle-score">
+        <h1>{{score}}/{{total}}</h1>
+    </div>
+    <div class="msg">
+        <p>{{msg}}</p>
+    </div>
+    <div class="btn-choice">
+        <a href="/">back to home page</a>
+        <a href="/quiz?q={{quiz_id}}">try agin</a>
+        <a href="/subject?q={{subject}}">continue</a>
+    </div>
+
+</div>
+
+
+
+{% include "quiz/components/footer.html"%}
+{% endblock content%}

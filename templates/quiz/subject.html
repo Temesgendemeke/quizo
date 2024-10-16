@@ -1,0 +1,25 @@
+{% extends "quiz/index.html" %} 
+
+{% block content %} 
+{% include "quiz/components/header.html"%}
+
+<h3 class="subject-title">{{name}}</h3>
+
+<div class="table-wrapper">
+<table>
+    <tr>
+        <th class="header-2">title</th>
+        <th class='header-3'>Popularity</th>
+    </tr>
+    {% for quiz in subject %}
+    <tr>
+        <td><a href="/quiz?q={{quiz.id}}">{{quiz.title}}</a></td>
+        <td>{{quiz.number}}</td>
+        
+    </tr>
+    {% endfor %}    
+</table>
+</div>
+
+{% include "quiz/components/footer.html"%} 
+{% endblock content%}

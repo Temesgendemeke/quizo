@@ -1,0 +1,14 @@
+<div class="main-wrapper">
+<h3 class="main-text">Select a Subject to Start Your <br> <mark> Quiz Adventure! </mark> </h3>
+<section class="main-container">
+	{% for quiz in subject %}
+	 <a href="/subject?q={{quiz.name}}" class="card"  style="background-image: url('{{ quiz.image.url }}');" >
+		<p>{{quiz.name}}</p>
+     </a>
+	{% endfor %}
+  </section>
+{% include "quiz/components/trending.html"%} 
+{% include "quiz/components/leaderboard.html"%}  
+</div>
+
+

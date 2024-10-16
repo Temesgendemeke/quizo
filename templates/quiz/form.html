@@ -1,0 +1,16 @@
+{% extends "quiz/index.html" %}
+
+
+{% block content %}
+
+{% include "quiz/components/header.html"%}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    
+    <input type="submit" value="login">
+</form>
+
+{% include "quiz/components/footer.html"%}
+{% endblock content%}

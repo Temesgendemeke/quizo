@@ -1,0 +1,17 @@
+<div class="home-table">
+  <h3>👑 Leaderboard</h3>
+  <table class="home-table-margin">
+    <tr>
+      <th>Rank</th>
+      <th>username</th>
+      <th>Score</th>
+    </tr>
+    {% for leader in leaders%}
+    <tr class="data-row">
+      <td>{{leader.user.pk}}</td>
+      <td>{{leader.user.username}}</td>
+      <td>{{leader.score}}</td>
+    </tr>
+    {% endfor%}
+  </table>
+</div>

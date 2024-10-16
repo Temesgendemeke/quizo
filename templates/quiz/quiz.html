@@ -1,0 +1,30 @@
+{% extends "quiz/index.html" %} {% block content %}
+{% include "quiz/components/header.html"%}
+
+
+
+<section class="quiz-section">
+
+<h2> TITLE: {{quiz.title}} </h2>
+
+<form action="/score" method="post">
+	{% csrf_token %}
+	<input type="hidden" name="quiz_id" 
+ value="{{quiz.id}}" />
+	{% for question in questions %}
+    <div class="question-style">
+	<p>{{question.question}}</p>
+	<input type="radio" name="answer-{{question.id}}" value="{{question.option1}}" id="{{question.id}}-ans1"  />
+	<label for="{{question.id}}-ans1">{{question.option1}}</label><br /> 
+	<input type="radio" name="answer-{{question.id}}" value="{{question.option2}}" id="{{question.id}}-ans2" />
+	<label for="{{question.id}}-ans2">{{question.option2}}</label><br />
+	<input type="radio" name="answer-{{question.id}}" value="{{question.option3}}" id="{{question.id}}-ans3" />
+	<label for="{{question.id}}-ans3">{{question.option3}}</label><br /> 
+	<input type="radio" name="answer-{{question.id}}" value="{{question.option4}}" id="{{question.id}}-ans4" />
+	<label for="{{question.id}}-ans4">{{question.option4}}</label>
+    </div>
+	{% endfor%}
+	<input type="submit" value="submit" class="submit-btn">
+</form>
+</section>
+{% include "quiz/components/footer.html"%} {% endblock content%}

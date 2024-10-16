@@ -1,0 +1,17 @@
+<div class="home-table">
+  <h3>📈 trending quiz</h3>
+  <table class="home-table-margin">
+    <tr>
+      <th>subject</th>
+      <th>quiz</th>
+      <th>popularity</th>
+    </tr>
+    {% for quiz in quizs%}
+    <tr class="data-row">
+      <td>{{quiz.subject}}</td>
+      <td><a href="/quiz?q={{quiz.pk}}">{{quiz.title}}<a></td>
+      <td>{{quiz.number}}</td>
+    </tr>
+    {% endfor%}
+  </table>
+</div>
