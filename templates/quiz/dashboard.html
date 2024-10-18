@@ -8,14 +8,14 @@
   
     <div class="personal-info">
        <div>
-         <p class="user">@{{user.username}}</p>
-         <h3 class="name">name: @{{user.first_name}}</h3>
-         <p>email: {{user.email}}</p>
+         <p class="user">@{{request.user.username}}</p>
+         <p>email: {{request.user.email}}</p>
        </div>
     </div>
     <div class="score-section">
+      {% if quizs %}
       <table class="dashboard-table">
-
+              <td>SUBJECT</td>
               <td>TITLE</td>
               <td>SCORE</td>
           </tr>
@@ -27,6 +27,9 @@
           </tr>
           {% endfor %}
       </table>
+      {% else%}
+         <h3 class="no-data">no data</h3>
+      {% endif %}
     </div>
 </div>
 

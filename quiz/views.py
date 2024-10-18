@@ -1,18 +1,36 @@
+from types import NoneType
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseNotFound
 from django.shortcuts import redirect, render
 from .models import Question, Quiz, Result, Subject
 from django.contrib.auth.models import User
+from .forms import UserCreationCustom
+from django.contrib.auth import authenticate
 
 
 # Create your views here.
 def homepage(request):
     subject = Subject.objects.all()
     quiz = Quiz.objects.all().order_by("-number")
-    user = Result.objects.all().order_by("-score")[:5]
+    user_results = Result.objects.all().order_by("-score")[:5]
+    loggined_user = request.user.id
+
+    unique_user = []
+    seen_user = set()
+
+    for result in user_results:
+        if result.user.id not in seen_user:
+            unique_user.append(result)
+            seen_user.add(result.user.id)
+
+        if len(unique_user) == 0:
+            break
+
     return render(
-        request, "quiz/home.html", {"subject": subject, "quizs": quiz, "leader": user}
+        request,
+        "quiz/home.html",
+        {"subject": subject, "quizs": quiz, "leaders": unique_user},
     )
 
 
@@ -29,7 +47,7 @@ def subjects(request):
 
 def quizView(request):
     try:
-        quiz = Quiz.objects.get(id=request.GET["q"]).order_by("-number")
+        quiz = Quiz.objects.get(id=request.GET["q"])
         questions = quiz.question.all()
     except:
         return HttpResponseNotFound()
@@ -49,15 +67,17 @@ def scoreView(request):
             print(user_quess)
             if question.answer == user_quess:
                 score += 1
-        print(score, quiz.subject.name)
-        Result.objects.create(subject=quiz.subject.name, score=score)
+
+        if request.user.is_authenticated:
+            Result.objects.create(
+                user=request.user, subject=quiz.subject.name, score=score, quiz=quiz
+            )
         if score > questions.count() - 1:
             msg = "you are wonderful 🎉"
         elif score >= questions.count() / 2:
             msg = "good 😉"
         else:
             msg = "come on you can do better than this 😫"
-        print(quiz, score, questions)
 
         return render(
             request,
@@ -79,18 +99,18 @@ def scoreView(request):
 
 def signUpView(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST or None)
+        form = UserCreationCustom(request.POST or None)
         if form.is_valid():
             form.save()
             return redirect("quiz:login")
     else:
-        form = UserCreationForm()
+        form = UserCreationCustom()
     return render(request, "registration/signup.html", {"form": form})
 
 
 @login_required
 def dashboardView(request):
-    user = User.objects.filter(id=1).first()
-    quiz = Result.objects.filter(user__id=1)
-    print(quiz)
-    return render(request, "quiz/dashboard.html", {"user": user})
+    user = User.objects.filter(id=2).first()
+    quiz = Result.objects.filter(user__id=request.user.id).order_by("-score")
+
+    return render(request, "quiz/dashboard.html", {"user": user, "quizs": quiz})

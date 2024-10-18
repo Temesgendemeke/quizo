@@ -8,8 +8,8 @@
     </tr>
     {% for leader in leaders%}
     <tr class="data-row">
-      <td>{{leader.user.pk}}</td>
-      <td>{{leader.user.username}}</td>
+      <td>{{forloop.counter}}</td>
+      <td>@{{leader.user.username}}</td>
       <td>{{leader.score}}</td>
     </tr>
     {% endfor%}

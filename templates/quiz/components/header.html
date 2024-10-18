@@ -16,6 +16,16 @@
       <li><a href="#" id="nav-links">subject</a></li>
       <li><a href="/about" id="nav-links">about</a></li>
     </ul>
+    {% if user.is_authenticated %} {% if request.path != "/user"%}
+    <a href="/user" class="login-btn">Dashboard</a>
+    {% else%}
+    <form method="POST" action="/accounts/logout/" style="display: inline">
+      {% csrf_token %}
+      <button type="submit" class="login-btn">Logout</button>
+    </form>
+
+    {% endif%} {% else %}
     <a href="/accounts/login" class="login-btn">Login</a>
+    {% endif%}
   </nav>
 </header>

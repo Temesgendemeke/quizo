@@ -1,3 +1,4 @@
+from sys import maxsize
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.base import Model
@@ -32,7 +33,7 @@ class Quiz(models.Model):
     number = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.title} "
 
 
 class Result(models.Model):
@@ -42,8 +43,4 @@ class Result(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 
     def __str__(self):
-        try:
-            name = self.user.name
-        except:
-            name = "quest"
-        return f"{self.subject} quiz takend by {name}"
+        return f"{self.subject} quiz takend by {self.user}"
