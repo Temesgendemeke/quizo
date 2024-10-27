@@ -1,4 +1,3 @@
 - TODO
-  reponsive
   move database to mysql
-  dashboard
+  use js for menu

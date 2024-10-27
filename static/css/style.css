@@ -164,7 +164,7 @@ footer {
 }
 
 table {
-  width: 600px;
+  width: 100%;
   margin: 20px;
   text-align: left;
   border-radius: 10px;
@@ -404,7 +404,8 @@ input[type="email"],
 .home-table {
   display: flex;
   flex-direction: column;
-  margin-right: 300px;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -502,12 +503,16 @@ input[type="email"],
 }
 
 @media only screen and (max-width: 790px) {
+  .home-table h3 {
+    font-size: 30px;
+  }
+
   .burger {
     display: block;
   }
 
   .main-text {
-    font-size: 50px;
+    font-size: 60px;
   }
 
   header {
@@ -582,6 +587,9 @@ input[type="email"],
     color: blue;
   }
 
+  #check {
+    display: none;
+  }
   #check:checked .navbar {
     background-color: blue;
     color: red;
