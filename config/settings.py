@@ -36,7 +36,7 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [os.environ.get('RAILWAY_STATIC_HOST')]
 
-CSRF_TRUSTED_ORIGINS = ['https://' +os.environ.get('RAILWAY_STATIC_HOST')]
+CSRF_TRUSTED_ORIGINS = ['https://quizo-production.up.railway.app']
 
 
 # Application definition
