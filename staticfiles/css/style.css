@@ -1,0 +1,182 @@
+:root {
+  --primary-color: #e5e5f7;
+  --sec-color: #333;
+}
+
+a{
+  text-decoration: none;
+}
+.main-text{
+  font-weight: 400;
+}
+
+.mark{
+  background-color: yellow;
+  font-family: cursive;
+}
+
+.navbar{
+  background-color: var(--primary-color);
+}
+
+table{
+  margin: 10px;
+}
+
+.btn, .login-btn{
+  background-color: var(--sec-color);
+  color: var(--primary-color);
+}
+
+
+tr, td{
+  text-transform: uppercase;
+}
+
+
+.login-wrapper, .signup-wrapper{
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.update-form p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  justify-content: center;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.card:hover {
+  transform: scale(1.07);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.card p {
+  z-index: 1;
+}
+
+
+
+
+footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  padding: 1rem 2rem;
+  }
+
+table{
+  width: 600px;
+  background-color: black;
+}
+th, td{
+  text-align: center;
+}
+
+
+
+.notfound-wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 200px;
+  color: var(--sec-color);
+}
+
+body{
+  min-height: 100vh;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+  min-height: 50px;
+}
+
+footer{
+  min-height: 50px;
+}
+
+.home-table h3 {
+  font-size: 40px;
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+.btn-choice a:hover{
+    opacity: 0.9;
+}
+
+
+@media only screen and (max-width: 767px) { 
+  .main-text{
+    font-size: 1000px;
+  }
+
+  body{
+    background-color: red
+  }
+}
+@media only screen and (min-width: 767px) { 
+  .main-text{
+    font-size: 1000px;
+  }
+
+  body{
+    background-color: red;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .home-table h3{
+    font-size: 30px;
+  }
+    
+    .main-text{
+      font-size: 50px;
+    }
+    .mark{
+      display: block;
+      margin-top: 20px;
+    }
+  }
