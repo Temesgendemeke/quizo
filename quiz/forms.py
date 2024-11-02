@@ -69,3 +69,22 @@ class UserCreationCustom(forms.Form):
             username=username, email=email, password=password
         )
         return user
+
+
+class UserForm(forms.ModelForm):
+    username = forms.CharField(max_length=50, required=True, widget=forms.TextInput, label="username")
+    first_name = forms.CharField(max_length=30, widget=forms.TextInput, required=False)
+    last_name = forms.CharField(max_length=20, widget=forms.TextInput, required=False)
+    email = forms.CharField(max_length=100, widget=forms.EmailInput, required=True, label="email")
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', 'username']
+
+
+
+
+
+    
+    
+

@@ -1,10 +1,11 @@
 <div class="home-table">
-  <h3>👑 Leaderboard</h3>
-  <table class="home-table-margin">
+  {% if leaders %}
+  <h3 class="text-center">👑 Leaderboard</h3>
+  <table class="home-table-margin table table-striped">
     <tr>
-      <th>Rank</th>
-      <th>username</th>
-      <th>Score</th>
+      <th class="col">Rank</th>
+      <th class="col">username</th>
+      <th class="col">Score</th>
     </tr>
     {% for leader in leaders%}
     <tr class="data-row">
@@ -14,4 +15,5 @@
     </tr>
     {% endfor%}
   </table>
+  {%endif%}
 </div>

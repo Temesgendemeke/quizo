@@ -4,18 +4,18 @@
 {% block content %}
 
 {% include "quiz/components/header.html"%}
-<div class="score-container">
+<div class="score-container container d-flex justify-content-center align-items-center flex-column">
     
-    <div class="circle-score">
-        <h1>{{score}}/{{total}}</h1>
+    <div class="circle-score bg-dark rounded-circle p-5  text-light m-4">
+        <h1 class="display-1">{{score}}/{{total}}</h1>
     </div>
     <div class="msg">
         <p>{{msg}}</p>
     </div>
     <div class="btn-choice">
-        <a href="/">back to home page</a>
-        <a href="/quiz?q={{quiz_id}}">try agin</a>
-        <a href="/subject?q={{subject}}">continue</a>
+        <a href="/" class="btn bg-dark text-light">back to home page</a>
+        <a href="/quiz?q={{quiz_id}}" class="btn bg-dark text-light">try agin</a>
+        <a href="/subject?q={{subject}}" class="btn bg-dark text-light">continue</a>
     </div>
 
 </div>

@@ -3,22 +3,26 @@
 {% block content %} 
 {% include "quiz/components/header.html"%}
 
-<h3 class="subject-title">{{name}}</h3>
 
-<div class="table-wrapper">
-<table>
+<h3 class="subject-title mt-3 text-center fw-4 h1  text-uppercase">{{name}}</h3>
+<div class="table-wrapper d-flex justify-content-center">
+{% if subject %}
+<table class="table container-sm table-striped  table-responsive">
     <tr>
-        <th class="header-2">title</th>
-        <th class='header-3'>Popularity</th>
+        <th scope="col">title</th>
+        <th scope='col'>Popularity</th>
     </tr>
     {% for quiz in subject %}
     <tr>
-        <td><a href="/quiz?q={{quiz.id}}">{{quiz.title}}</a></td>
+        <td ><a href="/quiz?q={{quiz.id}}">{{quiz.title}}</a></td>
         <td>{{quiz.number}}</td>
         
     </tr>
     {% endfor %}    
 </table>
+{%else%}
+<h3 class="text-center fs-5 mt-4"">No quizzes available for now</h3>
+{% endif%}
 </div>
 
 {% include "quiz/components/footer.html"%} 

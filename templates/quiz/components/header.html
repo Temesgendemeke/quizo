@@ -1,31 +1,57 @@
 <header>
-  <a href="/" class="logo">
-    <p>Quizo</p>
-  </a>
+  <nav class="navbar navbar-expand-lg bg-secondary.bg-gradient">
+			<div class="container-fluid">
+				<a class="navbar-brand fw-bold fs-3" href="/">Quizo</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarSupportedContent"
+				>
+					<ul class="navbar-nav ms-auto gap-2">
+						<li class="nav-item">
+							<a
+								class="nav-link active"
+								aria-current="page"
+								href="/"
+								>Home</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/subject">subject</a>
+						</li>
+            <li class="nav-item">
+							<a class="nav-link" href="/about">about</a>
+						</li>
 
-  <div class="burger">
-    <input type="checkbox" name="" id="check" />
-    <label for="check" class="icons">
-      <i class="bx bx-menu bx-sm" id="open"></i>
-      <i class="bx bx-x bx-sm" id="close"></i>
-    </label>
-  </div>
-  <nav class="navbar">
-    <ul>
-      <li><a href="/" id="nav-links">home</a></li>
-      <li><a href="#" id="nav-links">subject</a></li>
-      <li><a href="/about" id="nav-links">about</a></li>
-    </ul>
-    {% if user.is_authenticated %} {% if request.path != "/user"%}
-    <a href="/user" class="login-btn">Dashboard</a>
+            <li>
+
+              {% if user.is_authenticated %} {% if request.path != "/user"%}
+    <a href="/user" class="login-btn nav-link btn bg-black nav-link text-light icon-link login-btn rounded px-3">Dashboard</a>
     {% else%}
     <form method="POST" action="/accounts/logout/" style="display: inline">
       {% csrf_token %}
-      <button type="submit" class="login-btn">Logout</button>
+      <button type="submit" class="login-btn btn bg-black nav-link text-light icon-link login-btn rounded px-3">Logout</button>
     </form>
 
     {% endif%} {% else %}
-    <a href="/accounts/login" class="login-btn">Login</a>
+    <a href="/accounts/login" class="btn bg-black nav-link text-light icon-link login-btn rounded px-3">Login</a>
     {% endif%}
-  </nav>
+ 
+
+            </li>
+						</ul>
+             
+				</div>
+			</div>
+		</nav>
 </header>

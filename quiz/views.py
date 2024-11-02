@@ -5,7 +5,7 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import redirect, render
 from .models import Question, Quiz, Result, Subject
 from django.contrib.auth.models import User
-from .forms import UserCreationCustom
+from .forms import UserCreationCustom, UserForm
 from django.contrib.auth import authenticate
 
 
@@ -35,7 +35,7 @@ def homepage(request):
 
 
 def about(request):
-    return render(request, "quiz/about.html")
+      return render(request, "quiz/about.html")
 
 
 def subjects(request):
@@ -43,8 +43,6 @@ def subjects(request):
     return render(
         request, "quiz/subject.html", {"subject": quiz, "name": request.GET["q"]}
     )
-
-
 def quizView(request):
     try:
         quiz = Quiz.objects.get(id=request.GET["q"])
@@ -110,7 +108,13 @@ def signUpView(request):
 
 @login_required
 def dashboardView(request):
-    user = User.objects.filter(id=2).first()
+    user = User.objects.filter(id=request.user.id).first()
     quiz = Result.objects.filter(user__id=request.user.id).order_by("-score")
+    form = UserForm(instance=user)
 
-    return render(request, "quiz/dashboard.html", {"user": user, "quizs": quiz})
+    if request.method == 'POST':
+        form = UserForm(request.POST or None, instance=user)
+        if form.is_valid():
+            form.save()
+
+    return render(request, "quiz/dashboard.html", {"user": user, "quizs": quiz, "form":form})

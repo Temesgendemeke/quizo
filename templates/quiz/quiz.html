@@ -3,9 +3,9 @@
 
 
 
-<section class="quiz-section">
+<section class="quiz-section container">
 
-<h2> TITLE: {{quiz.title}} </h2>
+<h2 class="bg-dark  d-block mt-3 text-white p-2"> TITLE: {{quiz.title}} </h2>
 
 <form action="/score" method="post">
 	{% csrf_token %}
@@ -14,17 +14,17 @@
 	{% for question in questions %}
     <div class="question-style">
 	<p>{{question.question}}</p>
-	<input type="radio" name="answer-{{question.id}}" value="{{question.option1}}" id="{{question.id}}-ans1"  />
+	<input type="radio" class="form-check-input " name="answer-{{question.id}}" value="{{question.option1}}" id="{{question.id}}-ans1"  />
 	<label for="{{question.id}}-ans1">{{question.option1}}</label><br /> 
-	<input type="radio" name="answer-{{question.id}}" value="{{question.option2}}" id="{{question.id}}-ans2" />
+	<input type="radio" class="form-check-input" name="answer-{{question.id}}" value="{{question.option2}}" id="{{question.id}}-ans2" />
 	<label for="{{question.id}}-ans2">{{question.option2}}</label><br />
-	<input type="radio" name="answer-{{question.id}}" value="{{question.option3}}" id="{{question.id}}-ans3" />
+	<input type="radio" class="form-check-input" name="answer-{{question.id}}" value="{{question.option3}}" id="{{question.id}}-ans3" />
 	<label for="{{question.id}}-ans3">{{question.option3}}</label><br /> 
-	<input type="radio" name="answer-{{question.id}}" value="{{question.option4}}" id="{{question.id}}-ans4" />
+	<input type="radio" class="form-check-input" name="answer-{{question.id}}" value="{{question.option4}}" id="{{question.id}}-ans4" />
 	<label for="{{question.id}}-ans4">{{question.option4}}</label>
     </div>
 	{% endfor%}
-	<input type="submit" value="submit" class="submit-btn">
+	<input type="submit" value="submit" class="submit-btn btn  my-4 text-uppercase btn-dark">
 </form>
 </section>
 {% include "quiz/components/footer.html"%} {% endblock content%}

@@ -1,4 +1,5 @@
 {% extends "quiz/index.html" %}
+{%load crispy_forms_tags %} 
 
 {% block content %}
 
@@ -6,13 +7,13 @@
 
 {% include "quiz/components/header.html"%}
 <div class="form-wrapper">
-	<div class="login-wrapper">
+	<div class="login-wrapper container">
 		<form action="" method="post" id="login-form">
-    <h1 class="login-header">Login</h1> 
-			{% csrf_token %} {{ form.as_p}}
+    <h1 class="login-header text-center">Login</h1> 
+			{% csrf_token %} {{ form|crispy}}
             <div class="submit-section">			
 	
-          <input type="submit" value="login" />
+          <input type="submit" value="login" class="bg-dark text-white  btn d-block px-4 py-2" />
                 <span class="login-paragrah">
                    Don't have an account? <a href="{% url 'quiz:signup' %}">Signup</a>
                 </span>

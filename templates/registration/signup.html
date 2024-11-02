@@ -1,59 +1,27 @@
 {% extends "quiz/index.html" %} 
-{% block content %}
+{% block content %} 
 {% include "quiz/components/header.html"%}
+{%load crispy_forms_tags %} 
 <div class="form-wrapper">
-	<div class="signup">
-   		<form action="" method="post" class="signup-wrapper" id="signup-form">
-			{% csrf_token %} 
-       <h1 class="signup-title">Sign up</h1>
-                         
-      <div class="form-group">
-           {{ form.username.label_tag }}
-           {{ form.username }}
-           {% if form.username.errors %}
-        {% for error in form.username.errors %}
-           <p class="error">{{error}}</p>
-        {% endfor %}
-          {% endif %}  
-      </div>
+	<div class="signup-wrapper container ">
+		<form action="" method="post"  id="signup-form">
+			{% csrf_token %}
+			<h1 class="signup-title text-center text-uppercase m-3">Sign up</h1>
 
-    <div class="form-group">
-       {{ form.email.label_tag }}
-       {{ form.email }}
-       {% if form.email.errors %}
-       {% for error in form.email.errors %}
-       <p class="error">{{error}}</p>
-       {% endfor %}
-      {% endif %}  
-    </div>
-    
-    <div class="form-group">  
-       {{ form.password1.label_tag }}
-       {{ form.password1 }}
-       {% if form.password1.errors %}
-       {% for error in form.password1.errors %}
-       <p class="error">{{error}}</p>
-       {% endfor %}
-      {% endif %}  
-    </div>
-    
+			{{ form|crispy}}
 
-  
-    <div class="form-group">  
-       {{ form.password2.label_tag }}
-       {{ form.password2 }}
-       {% for error in form.password2.errors %}
-       <p class="error">invalid {{error}}</p>
-       {% endfor %}
-    </div>
-        
-
-			<input type="submit" value="Signup" />
-        <p>
-            Already have an account? <a href="{% url 'quiz:login' %}">Login</a>
-		    </p> 
+			<input
+				type="submit"
+				value="Signup"
+				class="bg-dark text-white btn d-block my-4 px-4 py-2"
+			/>
+			<p>
+				Already have an account?
+				<a href="{% url 'quiz:login' %}">Login</a>
+			</p>
 		</form>
-       	</div>
+	</div>
 </div>
 
-{% include "quiz/components/footer.html"%} {% endblock content %}
+{% include "quiz/components/footer.html"%}
+ {% endblock content %}

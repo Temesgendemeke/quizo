@@ -6,15 +6,21 @@
 
 <div class="dashboard">
   
-    <div class="personal-info">
-       <div>
-         <p class="user">@{{request.user.username}}</p>
+    <div class="personal-info bg-dark text-light p-2 m-2 d-flex justify-content-between">
+       <div class="lh-1">
+         <p class="user">username: @{{request.user.username}}</p>
+         <p>Full name: {{request.user.first_name}} {{request.user.last_name}}</p>
          <p>email: {{request.user.email}}</p>
+
        </div>
+       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <i style="color:white" class="bi bi-pencil-fill p-2"></i>
+       </button>
+
     </div>
     <div class="score-section">
       {% if quizs %}
-      <table class="dashboard-table">
+      <table class="dashboard-table table table-bordered table-striped container-sm">
               <td>SUBJECT</td>
               <td>TITLE</td>
               <td>SCORE</td>
@@ -28,10 +34,34 @@
           {% endfor %}
       </table>
       {% else%}
-         <h3 class="no-data">no data</h3>
+         <h3 class="no-data text-center text-uppercase">no data</h3>
       {% endif %}
     </div>
 </div>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">edit info</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/user" method="post" class="update-form container d-flex flex-column justify-content-between">
+           {% csrf_token %}
+           {{form.as_p}}
+                <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
+      </div>
+        </form>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+
 
 {% include "quiz/components/footer.html"%}
 {% endblock content%}
