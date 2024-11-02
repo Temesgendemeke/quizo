@@ -147,24 +147,7 @@ footer{
 }
 
 
-@media only screen and (max-width: 767px) { 
-  .main-text{
-    font-size: 1000px;
-  }
 
-  body{
-    background-color: red
-  }
-}
-@media only screen and (min-width: 767px) { 
-  .main-text{
-    font-size: 1000px;
-  }
-
-  body{
-    background-color: red;
-  }
-}
 
 @media only screen and (max-width: 600px) {
   
