@@ -7,7 +7,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     {% block title %}
-     Quizo
+       {% if request.path = '/' %}
+            Quizo
+       {% else if request.path = '/subject'%}
+            Subject
+       {% else if request.path = '/score'%}
+            Score
+
+       {% else if request.path = '/signup'%}
+             Sign up
+
+       
+        {% else if request.path = '/accounts/login'%}
+            Login
+
+       {% else if request.path = '/user'%}
+            Dashboard
+        
+       {% else if request.path = '/about'%}
+            About
+       {% endif %}
+
+
     {% endblock title %}</title>
     <link rel="icon" type="image/png" sizes="32x32" href={% static 'images/icon.png'%}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
