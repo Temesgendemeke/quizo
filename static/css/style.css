@@ -3,38 +3,39 @@
   --sec-color: #333;
 }
 
-a{
+a {
   text-decoration: none;
 }
-.main-text{
+.main-text {
   font-weight: 400;
 }
 
-.mark{
+.mark {
   background-color: yellow;
   font-family: cursive;
 }
 
-.navbar{
+.navbar {
   background-color: var(--primary-color);
 }
 
-table{
+table {
   margin: 10px;
 }
 
-.btn, .login-btn{
+.btn,
+.login-btn {
   background-color: var(--sec-color);
   color: var(--primary-color);
 }
 
-
-tr, td{
+tr,
+td {
   text-transform: uppercase;
 }
 
-
-.login-wrapper, .signup-wrapper{
+.login-wrapper,
+.signup-wrapper {
   max-width: 500px;
   margin: 0 auto;
 }
@@ -89,9 +90,6 @@ tr, td{
   z-index: 1;
 }
 
-
-
-
 footer {
   margin-top: auto;
   display: flex;
@@ -102,17 +100,16 @@ footer {
   font-size: 0.8rem;
   font-family: sans-serif;
   padding: 1rem 2rem;
-  }
+}
 
-table{
+table {
   width: 600px;
   background-color: black;
 }
-th, td{
+th,
+td {
   text-align: center;
 }
-
-
 
 .notfound-wrapper {
   display: flex;
@@ -121,18 +118,18 @@ th, td{
   color: var(--sec-color);
 }
 
-body{
+body {
   min-height: 100vh;
-  margin:0;
+  margin: 0;
   display: flex;
   flex-direction: column;
 }
 
-header{
+header {
   min-height: 50px;
 }
 
-footer{
+footer {
   min-height: 50px;
 }
 
@@ -142,24 +139,21 @@ footer{
   font-weight: normal;
 }
 
-.btn-choice a:hover{
-    opacity: 0.9;
+.btn-choice a:hover {
+  opacity: 0.9;
 }
 
-
-
-
 @media only screen and (max-width: 600px) {
-  
-  .home-table h3{
+  .home-table h3 {
     font-size: 30px;
   }
-    
-    .main-text{
-      font-size: 50px;
-    }
-    .mark{
-      display: block;
-      margin-top: 20px;
-    }
+
+  .main-text {
+    font-size: 50px;
   }
+  .mark {
+    display: block;
+    margin-top: 20px;
+  }
+}
+

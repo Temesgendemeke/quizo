@@ -10,14 +10,16 @@
 	<div class="login-wrapper container">
 		<form action="" method="post" id="login-form">
     <h1 class="login-header text-center">Login</h1> 
-			{% csrf_token %} {{ form|crispy}}
+			{% csrf_token %}
+      {{ form|crispy}}
+      
             <div class="submit-section">			
 	
           <input type="submit" value="login" class="bg-dark text-white  btn d-block px-4 py-2" />
                 <span class="login-paragrah">
                    Don't have an account? <a href="{% url 'quiz:signup' %}">Signup</a>
                 </span>
-            </div>
+           </div>
 
     </form>
     
