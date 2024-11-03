@@ -6,30 +6,30 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-    {% block title %}
-       {% if request.path = '/' %}
+       {% if request.path == '/' %}
             Quizo
-       {% else if request.path = '/subject'%}
+       {% elif request.path == '/subject'%}
             Subject
-       {% else if request.path = '/score'%}
+       {% elif request.path == '/score'%}
             Score
 
-       {% else if request.path = '/signup'%}
+       {% elif request.path == '/signup'%}
              Sign up
-
-       
-        {% else if request.path = '/accounts/login'%}
+ 
+        {% elif request.path == '/accounts/login/'%}
             Login
 
-       {% else if request.path = '/user'%}
+       {% elif request.path == '/user'%}
             Dashboard
         
-       {% else if request.path = '/about'%}
+       {% elif request.path == '/about'%}
             About
+        {% else %}
+            Quizo
        {% endif %}
 
 
-    {% endblock title %}</title>
+     </title>
     <link rel="icon" type="image/png" sizes="32x32" href={% static 'images/icon.png'%}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
