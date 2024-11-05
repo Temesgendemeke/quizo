@@ -34,7 +34,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "quizo-6o64.onrender.com",
+    "quizo-production.up.railway.app",
+]
 
 CSRF_TRUSTED_ORIGINS = ["https://quizo-production.up.railway.app"]
 
@@ -89,21 +93,14 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": user.path[1:],
-#         "USER": user.username,
-#         "PASSWORD": user.password,
-#         "HOST": user.hostname,  # Set to empty string for localhost
-#         "PORT": user.port,  # Default MySQL port
-#     }
-# }
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": user.path[1:],
+        "USER": user.username,
+        "PASSWORD": user.password,
+        "HOST": user.hostname,  # Set to empty string for localhost
+        "PORT": user.port,  # Default MySQL port
     }
 }
 

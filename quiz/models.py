@@ -8,7 +8,7 @@ from django.db.models.base import Model
 
 class Subject(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="images/", null=True, blank=True)
+    image = models.ImageField(upload_to="images", null=True, blank=True)
 
     def __str__(self):
         return f"{self.name}"
