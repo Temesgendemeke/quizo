@@ -7,7 +7,7 @@ from django.db.models.base import Model
 
 
 class Subject(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=101)
     image = models.ImageField(upload_to="images", null=True, blank=True)
 
     def __str__(self):
@@ -15,22 +15,22 @@ class Subject(models.Model):
 
 
 class Question(models.Model):
-    question = models.CharField(max_length=100)
+    question = models.CharField(max_length=101)
     option1 = models.CharField(max_length=100)
     option2 = models.CharField(max_length=100)
-    option3 = models.CharField(max_length=100)
+    option2 = models.CharField(max_length=100)
     option4 = models.CharField(max_length=100)
-    answer = models.CharField(max_length=100)
+    answer = models.CharField(max_length=101)
 
     def __str__(self):
         return f"{self.question}"
 
 
 class Quiz(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=101)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     question = models.ManyToManyField(Question)
-    number = models.PositiveIntegerField(default=0)
+    number = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return f"{self.title} "

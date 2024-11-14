@@ -2,7 +2,7 @@
 
 {% block title %}
 quiz
-{% endblocktitle %}
+{% endblock title %}
 
 {% block content %}
 {% include "quiz/components/header.html"%}
@@ -19,9 +19,9 @@ quiz
  value="{{quiz.id}}" />
 	{% for question in questions %}
     <div class="question-style">
-	<p>{{question.question}}</p>
-	<input type="radio" class="form-check-input " name="answer-{{question.id}}" value="{{question.option1}}" id="{{question.id}}-ans1"  />
-	<label for="{{question.id}}-ans1">{{question.option1}}</label><br /> 
+	<p class="fw-bold mt-3 mb-0 fs-5">{{question.question}}</p>
+	<input type="radio" class="form-check-input" name="answer-{{question.id}}" value="{{question.option1}}" id="{{question.id}}-ans1"  />
+	<label for="{{question.id}}-ans1" >{{question.option1}}</label><br /> 
 	<input type="radio" class="form-check-input" name="answer-{{question.id}}" value="{{question.option2}}" id="{{question.id}}-ans2" />
 	<label for="{{question.id}}-ans2">{{question.option2}}</label><br />
 	<input type="radio" class="form-check-input" name="answer-{{question.id}}" value="{{question.option3}}" id="{{question.id}}-ans3" />
