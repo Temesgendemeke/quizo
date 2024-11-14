@@ -2,6 +2,9 @@
 
 Quizo is a Django-based web application that provides an interactive and engaging quiz platform. Users can explore a variety of quizzes, test their knowledge across different topics, and enjoy a user-friendly interface with dynamically generated quiz content.
 
+![image](https://github.com/user-attachments/assets/2c62e15e-109c-4ee0-a867-e558afafaed0)
+
+
 Live Demo: [Quizo on Railway](https://quizo-production.up.railway.app/)
 
 ## Table of Contents
