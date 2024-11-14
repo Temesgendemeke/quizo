@@ -2,7 +2,7 @@
 <h3 class="main-text   display-3 mt-4 text-center ">Start Your <mark class="mark"> Quiz Adventure! </mark></h3>
 <section class="main-container d-flex justify-content-center flex-wrap">
 	{% for quiz in subject %}
-  <a href="/subject?q={{quiz.name}}" class="card text-decoration-none"  style="background-image: url('{{ MEDIA_URL }}{{ quiz.image.url }}');" >
+  <a href="/subject?q={{quiz.name}}" class="card text-decoration-none"  style="background-image: url('{{ quiz.image }}');" >
 		<p>{{quiz.name}}</p>
      </a>
 	{% endfor %}
