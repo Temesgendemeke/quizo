@@ -11,4 +11,5 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("user", views.dashboardView, name="dashboard"),
     path("about", views.about, name="aboutus"),
+    path("subject_list", views.subjectMenuView, name="aboutus"),
 ]

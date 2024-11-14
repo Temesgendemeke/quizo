@@ -1,0 +1,12 @@
+{% extends "quiz/index.html" %} 
+{% block content %}
+{% include "quiz/components/header.html"%} 
+<section class="main-container d-flex justify-content-center flex-wrap">
+	{% for subject in subjects %}
+  <a href="/subject?q={{subject.name}}" class="card text-decoration-none"  style="background-image: url('{{ subject.image }}');" >
+		<p>{{subject.name}}</p>
+     </a>
+	{% endfor %}
+  </section>
+{% include "quiz/components/footer.html"%}
+{% endblock content%}

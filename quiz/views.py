@@ -14,7 +14,6 @@ def homepage(request):
     subject = Subject.objects.all()
     quiz = Quiz.objects.all().order_by("-number")
     user_results = Result.objects.all().order_by("-score")[:5]
-    loggined_user = request.user.id
 
     unique_user = []
     seen_user = set()
@@ -35,7 +34,7 @@ def homepage(request):
 
 
 def about(request):
-      return render(request, "quiz/about.html")
+    return render(request, "quiz/about.html")
 
 
 def subjects(request):
@@ -43,6 +42,14 @@ def subjects(request):
     return render(
         request, "quiz/subject.html", {"subject": quiz, "name": request.GET["q"]}
     )
+
+
+def subjectMenuView(request):
+    subject = Subject.objects.all()
+
+    return render(request, "quiz/subject_page.html", {"subjects": subject})
+
+
 def quizView(request):
     try:
         quiz = Quiz.objects.get(id=request.GET["q"])
@@ -112,9 +119,11 @@ def dashboardView(request):
     quiz = Result.objects.filter(user__id=request.user.id).order_by("-score")
     form = UserForm(instance=user)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = UserForm(request.POST or None, instance=user)
         if form.is_valid():
             form.save()
 
-    return render(request, "quiz/dashboard.html", {"user": user, "quizs": quiz, "form":form})
+    return render(
+        request, "quiz/dashboard.html", {"user": user, "quizs": quiz, "form": form}
+    )
