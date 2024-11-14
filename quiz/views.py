@@ -62,14 +62,13 @@ def quizView(request):
 def scoreView(request):
     if request.method == "POST":
         score = 0
-        quiz_id = request.POST["quiz_id"][0]
-        quiz = Quiz.objects.get(id=quiz_id)
+        quiz_id = request.POST.get("quiz_id")
+        quiz = Quiz.objects.get(id=int(quiz_id))
         quiz.number += 1
         quiz.save()
         questions = quiz.question.all()
         for question in questions:
             user_quess = request.POST.get("answer-{}".format(str(question.id)))
-            print(user_quess)
             if question.answer == user_quess:
                 score += 1
 
