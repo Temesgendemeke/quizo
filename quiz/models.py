@@ -1,8 +1,5 @@
-from sys import maxsize
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models.base import Model
-from django.utils.choices import BlankChoiceIterator
 
 # Create your models here.
 
